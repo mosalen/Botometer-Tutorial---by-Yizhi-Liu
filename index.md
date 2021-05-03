@@ -86,9 +86,12 @@ First, install Botometer in your command shell.
 pip install botometer
 ```
 
-Then, in your Python shell or script, import Botometer and input the credentials we got earlier.
-We also import time because we might want to control the frequency later.
+In your Python shell or script, import Botometer and input the credentials we got earlier. We also import time because we might want to control the frequency later.
 ![image](https://user-images.githubusercontent.com/42571555/116944482-70712800-ac2a-11eb-85a6-67f6abd02d07.png)
+
+Then, instantiate Botometer:
+![image](https://user-images.githubusercontent.com/42571555/116944679-ccd44780-ac2a-11eb-86cb-991e430eca75.png)
+
 
 
 ```markdown
