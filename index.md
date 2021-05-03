@@ -14,6 +14,7 @@ Botometer is one of the most famous and powerful social bot detection tools that
 
 In this tutorial, we will go through the whole process of using Botometer to detect social bots on Twitter. This includes how to collect data from Twitter, store them in your local machine, and leverage Botometer to detect the soical bots in the data you collected. In addition, to evaluate the performance, we will also compare Botometer with some deep learning methods (e.g., LSTM) using pulicly labeled data.
 
+
 ## 1. Setup
 
 In this tutorial, we are using Python 3.6, and other configures are listed below.
@@ -40,11 +41,13 @@ setup(name='botometer',
       )
 ```
 
+
 ## 2. API Preparations
 
 Before using Botometer, we need to make some prepartions to get the API authorization.
 Botometer provides its public service through RapidAPI.
 Also, Twitter APP key is needed because we need to get access to Twitter user data in a legal way.
+
 
 ### RapidAPI
 
@@ -60,6 +63,7 @@ Now, let's go back to [Link](https://rapidapi.com/OSoMe/api/botometer-pro) and y
 
 Please keep X-RapidAPI-Key properly. We will need it soon.
 
+
 ### Twitter 
 To apply for a Twitter developer account, go to [Link](https://developer.twitter.com/)
 There are plenty of tutorials out there, so we will not go through the details.
@@ -73,12 +77,19 @@ Again, please keep them properly. You need to regenerate them again if they are 
 
 
 
+## 3. Quick Start
 
-### 2. API Preparations
+Now, let's start using Botometer with a simple example!
 
-Before using Botometer, we need to make some prepartions to get the API authorization.
-Botometer provides its public service through RapidAPI.
-Also, Twitter APP key is needed because we need to get access to Twitter user data in a legal way.
+First, install Botometer in your command shell.
+```markdown
+pip install botometer
+```
+
+Then, in your Python shell or script, import Botometer and input the credentials we got earlier.
+We also import time because we might want to control the frequency later.
+![image](https://user-images.githubusercontent.com/42571555/116944482-70712800-ac2a-11eb-85a6-67f6abd02d07.png)
+
 
 ```markdown
 # RapidAPI
