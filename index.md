@@ -46,7 +46,6 @@ Before using Botometer, we need to make some prepartions to get the API authoriz
 Botometer provides its public service through RapidAPI.
 Also, Twitter APP key is needed because we need to get access to Twitter user data in a legal way.
 
-```markdown
 # RapidAPI
 
 First, go to [Link](https://rapidapi.com/OSoMe/api/botometer-pro) and create a RapidAPI account first.
@@ -71,8 +70,6 @@ After you get the account and create an app, you will have the following page:
 We will need all these information: consumer_key, consumer_secret, access_token, access_token_secret
 
 Again, please keep them properly. You need to regenerate them again if they are lost.
-
-```
 
 
 
