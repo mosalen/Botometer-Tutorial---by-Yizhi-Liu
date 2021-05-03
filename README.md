@@ -1,1 +1,2 @@
-# LING539
+# Botometer Tutorial 
+- a bot checker of Twitter accounts
