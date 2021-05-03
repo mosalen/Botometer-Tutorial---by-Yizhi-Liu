@@ -1,10 +1,18 @@
-## Introduction: Welcome to Yizhi Liu's Botometer Tutorial!
+## Introduction: What are social bots and what is Botometer?
 
-Many kinds of social bots exist in social media. In particular, malicious bots can be used to manipulate social media users by amplifying misinformation, creating the appearance that some people, ideas, or products are more popular than they are, committing financial fraud, suppressing or disrupting speech, spreading malware or spam, trolling/attacking victims, and other types of abuse.
+Have you noticed any bots on social media?
 
-Botometer is developed as a machine learning algorithm to detect social bots. It is trained to calculate a "bot score" where low scores indicate likely human accounts and high scores indicate likely bot accounts.
+It is estimated that 9-15% of active Twitter accounts may be social bots. They are EVERYWHERE!
 
-This tutorial is developed for LING 539.
+![image](https://user-images.githubusercontent.com/42571555/116933847-f8e6cd00-ac18-11eb-8acf-a14ae75816d5.png)
+
+Many kinds of social bots exist in social media. Malicious bots can be used to manipulate social media users by amplifying misinformation, creating the appearance that some people, ideas, or products are more popular than they are, committing financial fraud, suppressing or disrupting speech, spreading malware or spam, trolling/attacking victims, and other types of abuse.
+
+![image](https://user-images.githubusercontent.com/42571555/116934258-917d4d00-ac19-11eb-8f59-00d4362c14d9.png)
+
+Botometer is one of the most famous and powerful social bot detection tools that are public available. It is developed as a machine learning algorithm to detect social bots. It is trained to calculate a "bot score" where low scores indicate likely human accounts and high scores indicate likely bot accounts.
+
+In this tutorial, we will go through the whole process of using Botometer to detect social bots on Twitter. This includes how to collect data from Twitter, store them in your local machine, and leverage Botometer to detect the soical bots in the data you collected. In addition, to evaluate the performance, we will also compare Botometer with some deep learning methods (e.g., LSTM) using pulicly labeled data.
 
 ### Markdown
 
