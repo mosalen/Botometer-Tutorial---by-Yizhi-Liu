@@ -1,4 +1,4 @@
-## Introduction: What are social bots and what is Botometer?
+# Introduction: What are social bots and what is Botometer?
 
 Have you noticed any bots on social media?
 
@@ -14,16 +14,16 @@ Botometer is one of the most famous and powerful social bot detection tools that
 
 In this tutorial, we will go through the whole process of using Botometer to detect social bots on Twitter. This includes how to collect data from Twitter, store them in your local machine, and leverage Botometer to detect the soical bots in the data you collected. In addition, to evaluate the performance, we will also compare Botometer with some deep learning methods (e.g., LSTM) using pulicly labeled data.
 
-### 1. Setup
+## 1. Setup
 
 In this tutorial, we are using Python 3.6, and other configures are listed below.
 Note that requests and tweepy are required.
 
 ```markdown
-# Install requests and tweepy if not exist
+### Install requests and tweepy if not exist
 pip install requests tweepy
 
-# Other information
+### Other information
 setup(name='botometer',
       version='1.6',
       description='Check Twitter accounts for bot behavior',
@@ -40,13 +40,13 @@ setup(name='botometer',
       )
 ```
 
-### 2. API Preparations
+## 2. API Preparations
 
 Before using Botometer, we need to make some prepartions to get the API authorization.
 Botometer provides its public service through RapidAPI.
 Also, Twitter APP key is needed because we need to get access to Twitter user data in a legal way.
 
-# RapidAPI
+### RapidAPI
 
 First, go to [Link](https://rapidapi.com/OSoMe/api/botometer-pro) and create a RapidAPI account first.
 Then, click the "Subscribe to Test" button, you will see the page below.
@@ -60,7 +60,7 @@ Now, let's go back to [Link](https://rapidapi.com/OSoMe/api/botometer-pro) and y
 
 Please keep X-RapidAPI-Key properly. We will need it soon.
 
-## Twitter 
+### Twitter 
 To apply for a Twitter developer account, go to [Link](https://developer.twitter.com/)
 There are plenty of tutorials out there, so we will not go through the details.
 
