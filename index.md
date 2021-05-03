@@ -14,6 +14,28 @@ Botometer is one of the most famous and powerful social bot detection tools that
 
 In this tutorial, we will go through the whole process of using Botometer to detect social bots on Twitter. This includes how to collect data from Twitter, store them in your local machine, and leverage Botometer to detect the soical bots in the data you collected. In addition, to evaluate the performance, we will also compare Botometer with some deep learning methods (e.g., LSTM) using pulicly labeled data.
 
+### Setup
+
+In this tutorial, we are using Python 3.6, and other configures are listed below.
+Note that requests and tweepy are required.
+
+```markdown
+setup(name='botometer',
+      version='1.6',
+      description='Check Twitter accounts for bot behavior',
+      url='https://github.com/IUNetSci/botometer-python',
+      download_url='https://github.com/IUNetSci/botometer-python/archive/1.0.zip',
+      author='Clayton A Davis, Kai-Cheng Yang',
+      author_email='claydavi@indiana.edu,yangkc@iu.edu',
+      license='MIT',
+      packages=['botometer'],
+      install_requires=[
+          'requests',
+          'tweepy >= 3.5.0',
+          ],
+      )
+```
+
 ### Markdown
 
 Markdown is a lightweight and easy-to-use syntax for styling your writing. It includes conventions for
@@ -35,6 +57,7 @@ Syntax highlighted code block
 
 [Link](url) and ![Image](src)
 ```
+
 
 For more details see [GitHub Flavored Markdown](https://guides.github.com/features/mastering-markdown/).
 
