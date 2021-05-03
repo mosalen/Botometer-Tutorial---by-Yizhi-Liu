@@ -14,12 +14,16 @@ Botometer is one of the most famous and powerful social bot detection tools that
 
 In this tutorial, we will go through the whole process of using Botometer to detect social bots on Twitter. This includes how to collect data from Twitter, store them in your local machine, and leverage Botometer to detect the soical bots in the data you collected. In addition, to evaluate the performance, we will also compare Botometer with some deep learning methods (e.g., LSTM) using pulicly labeled data.
 
-### Setup
+### 1. Setup
 
 In this tutorial, we are using Python 3.6, and other configures are listed below.
 Note that requests and tweepy are required.
 
 ```markdown
+# Install requests and tweepy if not exist
+pip install requests tweepy
+
+# Other information
 setup(name='botometer',
       version='1.6',
       description='Check Twitter accounts for bot behavior',
@@ -36,15 +40,75 @@ setup(name='botometer',
       )
 ```
 
-### Markdown
+### 2. API Preparations
 
-Markdown is a lightweight and easy-to-use syntax for styling your writing. It includes conventions for
+Before using Botometer, we need to make some prepartions to get the API authorization.
+Botometer provides its public service through RapidAPI.
+Also, Twitter APP key is needed because we need to get access to Twitter user data in a legal way.
 
 ```markdown
-Syntax highlighted code block
+# RapidAPI
 
-# Header 1
-## Header 2
+First, go to [Link](https://rapidapi.com/OSoMe/api/botometer-pro) and create a RapidAPI account first.
+Then, click the "Subscribe to Test" button, you will see the page below.
+![image](https://user-images.githubusercontent.com/42571555/116942513-94326f00-ac26-11eb-965f-bf5de9557cbf.png)
+
+For testing and exploration purpose, we can select the Basic plan. Don't worry, it's completely free!
+If you need more quota in the future, you can switch to a higher plan at any time.
+
+Now, let's go back to [Link](https://rapidapi.com/OSoMe/api/botometer-pro) and you will see the API information.
+![image](https://user-images.githubusercontent.com/42571555/116942186-fd65b280-ac25-11eb-9b4e-0e1c1dc235b8.png)
+
+Please keep X-RapidAPI-Key properly. We will need it soon.
+
+## Twitter 
+To apply for a Twitter developer account, go to [Link](https://developer.twitter.com/)
+There are plenty of tutorials out there, so we will not go through the details.
+
+After you get the account and create an app, you will have the following page:
+![image](https://user-images.githubusercontent.com/42571555/116942911-5bdf6080-ac27-11eb-88ad-8cb7be30c8a4.png)
+
+We will need all these information: consumer_key, consumer_secret, access_token, access_token_secret
+
+Again, please keep them properly. You need to regenerate them again if they are lost.
+
+```
+
+
+
+
+### 2. API Preparations
+
+Before using Botometer, we need to make some prepartions to get the API authorization.
+Botometer provides its public service through RapidAPI.
+Also, Twitter APP key is needed because we need to get access to Twitter user data in a legal way.
+
+```markdown
+# RapidAPI
+
+First, go to [Link](https://rapidapi.com/OSoMe/api/botometer-pro) and create a RapidAPI account first.
+Then, click the "Subscribe to Test" button, you will see the page below.
+![image](https://user-images.githubusercontent.com/42571555/116942513-94326f00-ac26-11eb-965f-bf5de9557cbf.png)
+
+For testing and exploration purpose, we can select the Basic plan. Don't worry, it's completely free!
+If you need more quota in the future, you can switch to a higher plan at any time.
+
+Now, let's go back to [Link](https://rapidapi.com/OSoMe/api/botometer-pro) and you will see the API information.
+![image](https://user-images.githubusercontent.com/42571555/116942186-fd65b280-ac25-11eb-9b4e-0e1c1dc235b8.png)
+
+Please keep X-RapidAPI-Key properly. We will need it soon.
+
+## Twitter 
+To apply for a Twitter developer account, go to [Link](https://developer.twitter.com/)
+There are plenty of tutorials out there, so we will not go through the details.
+
+After you get the account and create an app, you will have the following page:
+![image](https://user-images.githubusercontent.com/42571555/116942911-5bdf6080-ac27-11eb-88ad-8cb7be30c8a4.png)
+
+We will need all these information: consumer_key, consumer_secret, access_token, access_token_secret
+
+Again, please keep them properly. You need to regenerate them again if they are lost.
+
 ### Header 3
 
 - Bulleted
@@ -57,6 +121,9 @@ Syntax highlighted code block
 
 [Link](url) and ![Image](src)
 ```
+
+
+
 
 
 For more details see [GitHub Flavored Markdown](https://guides.github.com/features/mastering-markdown/).
