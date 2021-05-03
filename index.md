@@ -1,6 +1,10 @@
-## Welcome to Yizhi Liu's LING539 Pages!
+## Introduction: Welcome to Yizhi Liu's Botometer Tutorial!
 
-Hello LING 539!!!
+Many kinds of social bots exist in social media. In particular, malicious bots can be used to manipulate social media users by amplifying misinformation, creating the appearance that some people, ideas, or products are more popular than they are, committing financial fraud, suppressing or disrupting speech, spreading malware or spam, trolling/attacking victims, and other types of abuse.
+
+Botometer is developed as a machine learning algorithm to detect social bots. It is trained to calculate a "bot score" where low scores indicate likely human accounts and high scores indicate likely bot accounts.
+
+This tutorial is developed for LING 539.
 
 ### Markdown
 
