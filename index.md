@@ -95,6 +95,8 @@ Then, instantiate Botometer:
 
 ![image](https://user-images.githubusercontent.com/42571555/116944679-ccd44780-ac2a-11eb-86cb-991e430eca75.png)
 
+
+### Try to Check Accounts
 Let's try some accounts! Botometer allows searching with account names or ids. 
 ```markdown
 result = bom.check_account('@BarackObama')
@@ -115,6 +117,7 @@ So here are the results of @BarackObama:
 'user': {'majority_lang': 'en', 'user_data': {'id_str': '813286', 'screen_name': 'BarackObama'}}}
 ```
 
+### Meanings of Returned Results
 Well, there is a lot of information. What do they mean? The meanings of the four elements are:
 ```markdown
 user: Twitter user object (from the user) plus the language inferred from majority of tweets
@@ -135,11 +138,70 @@ other: miscellaneous other bots obtained from manual annotation, user feedback, 
 In short, if we look at "raw_scores" and "English," the account @BarackObama is not a bot, but its 'astroturf' score is relatively high.
 If we look at the definition of "astroturf," you may think the results indeed make sense. 
 
+Let's try another account using the id:
 ```markdown
 result2 = bom.check_account(27260086)
 print(result2)
+
+{'cap': {'english': 0.7668769621923945, 'universal': 0.8035432096295109}, 
+
+'display_scores': 
+{'english': {'astroturf': 1.8, 'fake_follower': 1.8, 'financial': 0.0, 'other': 1.9, 'overall': 1.4, 'self_declared': 0.1, 'spammer': 0.0}, 
+'universal': {'astroturf': 1.6, 'fake_follower': 1.6, 'financial': 0.0, 'other': 1.6, 'overall': 2.0, 'self_declared': 0.0, 'spammer': 0.0}}, 
+
+'raw_scores': 
+{'english': {'astroturf': 0.37, 'fake_follower': 0.36, 'financial': 0.0, 'other': 0.38, 'overall': 0.28, 'self_declared': 0.02, 'spammer': 0.0}, 
+'universal': {'astroturf': 0.32, 'fake_follower': 0.32, 'financial': 0.0, 'other': 0.32, 'overall': 0.41, 'self_declared': 0.01, 'spammer': 0.0}}, 
+
+'user': {'majority_lang': 'en', 'user_data': {'id_str': '27260086', 'screen_name': 'justinbieber'}}}
+```
+Great! Next, let's test social bots in scale and see how Botometer perform.
+
+
+
+## 4. Check Accounts in Bulk
+
+Botometer does allow us to check accounts in bulk. Howvever, that requires a Pro subscription and above.
+Therefore, we can write a script to bypass it and check accounts one by one automatically.
+
+```markdown
+file_name = 'path to the account text file.'
+user_list = open(file_name, encoding='utf-8').read().split('\n')
+
+
+num = 0
+for account in user_list:
+    ram = random.randint(0, 3)
+    time.sleep(ram)
+
+    try:
+        result = bom.check_account(account)
+        print("result get!")
+        num += 1
+        score = result.get('raw_scores')
+        score = score.get('english')
+        score = score.get('overall')
+        name = result.get('user')
+        name = name.get('user_data')
+        name = name.get('screen_name')
+
+        bot_result = open('path to the result text file.', "a")
+        bot_result.write(str(name) + ' ')
+        bot_result.write(str(score))
+        bot_result.write("\n")
+        bot_result.close()
+        print(num)
+    except Exception as e:
+        print(str(e))
+        print(str(account) + " may not exist any more!")
+        bot_result = open('path to the result text file.', "a")
+        bot_result.write("N/A")
+        bot_result.write("\n")
+        bot_result.close()
+        pass
 ```
 
+[Link](https://botometer.osome.iu.edu/bot-repository/datasets.html)
 
 ```markdown
 # RapidAPI
