@@ -215,13 +215,17 @@ Since Botometer API only allows 500 quota per day, we randomly select 500 accoun
 ### Evaluation
 Among the 500 accounts, there are still 100 accounts that are either not accessible or already banned by Twitter.
 400 accounts are valid and can be analyzed by Botometer.
+
 ![image](https://user-images.githubusercontent.com/42571555/116966642-7fc19700-ac65-11eb-84ae-6c84b1c78310.png)
 
 After evaluation, there are 337 results are correct, and 63 are wrong.
+
 ![image](https://user-images.githubusercontent.com/42571555/116967606-8e10b280-ac67-11eb-8bef-652f8b850012.png)
 
 Let's look at the confusion matrix to investigate the wrong predictions.
+
 ![image](https://user-images.githubusercontent.com/42571555/116968454-586cc900-ac69-11eb-8a2e-02a99e287cb2.png)
+
 
 From the confusion matrix, we see that Botometer can get a decent performance.
 However, it wrongly classified quite a few human accounts as bots, leading to a lower precision.
