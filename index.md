@@ -95,6 +95,50 @@ Then, instantiate Botometer:
 
 ![image](https://user-images.githubusercontent.com/42571555/116944679-ccd44780-ac2a-11eb-86cb-991e430eca75.png)
 
+Let's try some accounts! Botometer allows searching with account names or ids. 
+```markdown
+result = bom.check_account('@BarackObama')
+print(result)
+```
+So here are the results of @BarackObama:
+```markdown
+{'cap': {'english': 0.7971612475312038, 'universal': 0.8052444082217497}, 
+
+'display_scores': 
+{'english': {'astroturf': 2.1, 'fake_follower': 1.6, 'financial': 0.0, 'other': 2.2, 'overall': 2.5, 'self_declared': 0.4, 'spammer': 0.2}, 
+'universal': {'astroturf': 1.8, 'fake_follower': 1.6, 'financial': 0.0, 'other': 1.4, 'overall': 3.0, 'self_declared': 0.2, 'spammer': 0.0}}, 
+
+'raw_scores': 
+{'english': {'astroturf': 0.42, 'fake_follower': 0.33, 'financial': 0.0, 'other': 0.44, 'overall': 0.5, 'self_declared': 0.09, 'spammer': 0.03}, 
+'universal': {'astroturf': 0.37, 'fake_follower': 0.32, 'financial': 0.0, 'other': 0.27, 'overall': 0.6, 'self_declared': 0.05, 'spammer': 0.0}}, 
+
+'user': {'majority_lang': 'en', 'user_data': {'id_str': '813286', 'screen_name': 'BarackObama'}}}
+```
+
+Well, there is a lot of information. What do they mean? The meanings of the four elements are:
+```markdown
+user: Twitter user object (from the user) plus the language inferred from majority of tweets
+raw scores: bot score in the [0,1] range, both using English (all features) and Universal (language-independent) features; in each case we have the overall score and the sub-scores for each bot class (see below for subclass names and definitions)
+display scores: same as raw scores, but in the [0,5] range
+cap: conditional probability that accounts with a score equal to or greater than this are automated; based on inferred language
+```
+
+And the meanings of the bot type scores are:
+```markdown
+fake_follower: bots purchased to increase follower counts
+self_declared: bots from botwiki.org
+astroturf: manually labeled political bots and accounts involved in follow trains that systematically delete content
+spammer: accounts labeled as spambots from several datasets
+financial: bots that post using cashtags
+other: miscellaneous other bots obtained from manual annotation, user feedback, etc.
+```
+In short, if we look at "raw_scores" and "English," the account @BarackObama is not a bot, but its 'astroturf' score is relatively high.
+If we look at the definition of "astroturf," you may think the results indeed make sense. 
+
+```markdown
+result2 = bom.check_account(27260086)
+print(result2)
+```
 
 
 ```markdown
