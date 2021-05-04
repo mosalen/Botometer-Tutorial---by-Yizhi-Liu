@@ -233,6 +233,9 @@ However, it wrongly classified quite a few human accounts as bots, leading to a 
 
 ## 5. Conclusion
 In this tutorial, we go through how to leverage Botometer, one of the most advanced social bot detection tool, to detect social bots in Twitter.
-We can see from the results that Botometer has a good performance on real-world data. However, it tends to get relatively high false positives.
+We can see from the results that Botometer has a good performance on real-world data. 
+
+However, it tends to get relatively high false positives.
+
 In the future, we can investigate what features Botometer and other similar tools use, which may help us to improve their performance.
 
