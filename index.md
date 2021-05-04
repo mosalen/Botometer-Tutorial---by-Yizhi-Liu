@@ -159,8 +159,8 @@ Great! Next, let's test social bots in scale and see how Botometer perform.
 
 
 
-## 4. Check Accounts in Bulk
-
+## 4. Accuracy Evaluation
+### Check Accounts in Bulk
 Botometer does allow us to check accounts in bulk. Howvever, that requires a Pro subscription and above.
 Therefore, we can write a script to bypass it and check accounts one by one automatically.
 
@@ -201,57 +201,34 @@ for account in user_list:
         pass
 ```
 
-[Link](https://botometer.osome.iu.edu/bot-repository/datasets.html)
+Where can we get the account lists? We surely can obtain it by collecting from Twitter.
+However, to evaluate the performance of Botometer, we need some labeled data.
 
-```markdown
-# RapidAPI
+### Ground-truth Data
+Labeled social bot account data is not easy to obtain, because it needs a lot of human effort. 
+Also, Twitter often bans those social bots, making some labeled data invalid.
 
-First, go to [Link](https://rapidapi.com/OSoMe/api/botometer-pro) and create a RapidAPI account first.
-Then, click the "Subscribe to Test" button, you will see the page below.
-![image](https://user-images.githubusercontent.com/42571555/116942513-94326f00-ac26-11eb-965f-bf5de9557cbf.png)
+Fortunately, here is a relatively new dataset on Kaggle: [Link](https://botometer.osome.iu.edu/bot-repository/datasets.html)
 
-For testing and exploration purpose, we can select the Basic plan. Don't worry, it's completely free!
-If you need more quota in the future, you can switch to a higher plan at any time.
+Since Botometer API only allows 500 quota per day, we randomly select 500 accounts from this data.
 
-Now, let's go back to [Link](https://rapidapi.com/OSoMe/api/botometer-pro) and you will see the API information.
-![image](https://user-images.githubusercontent.com/42571555/116942186-fd65b280-ac25-11eb-9b4e-0e1c1dc235b8.png)
+### Evaluation
+Among the 500 accounts, there are still 100 accounts that are either not accessible or already banned by Twitter.
+400 accounts are valid and can be analyzed by Botometer.
+![image](https://user-images.githubusercontent.com/42571555/116966642-7fc19700-ac65-11eb-84ae-6c84b1c78310.png)
 
-Please keep X-RapidAPI-Key properly. We will need it soon.
+After evaluation, there are 337 results are correct, and 63 are wrong.
+![image](https://user-images.githubusercontent.com/42571555/116967606-8e10b280-ac67-11eb-8bef-652f8b850012.png)
 
-## Twitter 
-To apply for a Twitter developer account, go to [Link](https://developer.twitter.com/)
-There are plenty of tutorials out there, so we will not go through the details.
+Let's look at the confusion matrix to investigate the wrong predictions.
+![image](https://user-images.githubusercontent.com/42571555/116968454-586cc900-ac69-11eb-8a2e-02a99e287cb2.png)
 
-After you get the account and create an app, you will have the following page:
-![image](https://user-images.githubusercontent.com/42571555/116942911-5bdf6080-ac27-11eb-88ad-8cb7be30c8a4.png)
-
-We will need all these information: consumer_key, consumer_secret, access_token, access_token_secret
-
-Again, please keep them properly. You need to regenerate them again if they are lost.
-
-### Header 3
-
-- Bulleted
-- List
-
-1. Numbered
-2. List
-
-**Bold** and _Italic_ and `Code` text
-
-[Link](url) and ![Image](src)
-```
+From the confusion matrix, we see that Botometer can get a decent performance.
+However, it wrongly classified quite a few human accounts as bots, leading to a lower precision.
 
 
+## 5. Conclusion
+In this tutorial, we go through how to leverage Botometer, one of the most advanced social bot detection tool, to detect social bots in Twitter.
+We can see from the results that Botometer has a good performance on real-world data. However, it tends to get relatively high false positives.
+In the future, we can investigate what features Botometer and other similar tools use, which may help us to improve their performance.
 
-
-
-For more details see [GitHub Flavored Markdown](https://guides.github.com/features/mastering-markdown/).
-
-### Jekyll Themes
-
-Your Pages site will use the layout and styles from the Jekyll theme you have selected in your [repository settings](https://github.com/mosalen/LING539-YL.github.io/settings). The name of this theme is saved in the Jekyll `_config.yml` configuration file.
-
-### Support or Contact
-
-Having trouble with Pages? Check out our [documentation](https://docs.github.com/categories/github-pages-basics/) or [contact support](https://support.github.com/contact) and we’ll help you sort it out.
